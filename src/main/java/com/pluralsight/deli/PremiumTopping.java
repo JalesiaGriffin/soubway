@@ -4,7 +4,7 @@ public class PremiumTopping extends Topping {
     enum meats {steak, ham, salami, roastbeef, chicken, bacon};
     enum cheeses {american, provolone, cheddar, swiss};
     public double getPrice(String size){
-        double price = 0;
+        double price = 0.0;
 
         if (isMeat()){
             switch(size){

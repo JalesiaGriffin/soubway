@@ -20,11 +20,11 @@ public class Sandwich implements Price {
         this.bread = bread;
     }
 
-    public ArrayList<Toppings> getToppings() {
+    public ArrayList<Topping> getToppings() {
         return toppings;
     }
 
-    public void setToppings(ArrayList<Toppings> toppings) {
+    public void setToppings(ArrayList<Topping> toppings) {
         this.toppings = toppings;
     }
 
@@ -53,7 +53,7 @@ public class Sandwich implements Price {
     }
 
     private String bread;
-    private ArrayList<Toppings> toppings = new ArrayList<Toppings>();
+    private ArrayList<Topping> toppings = new ArrayList<Topping>();
     private boolean toasted;
     private boolean extraCheese;
     private boolean extraMeat;
