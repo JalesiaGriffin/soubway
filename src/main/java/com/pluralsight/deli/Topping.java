@@ -1,6 +1,6 @@
 package com.pluralsight.deli;
 
-public abstract class Toppings implements Price {
+public abstract class Topping implements Price {
 
     @Override
     public double getPrice() {
