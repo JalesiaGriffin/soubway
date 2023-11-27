@@ -1,18 +1,23 @@
 package com.pluralsight.deli;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Order {
-    private static ArrayList<Order> order = new ArrayList<Order>();
+    private List<Sandwich> sandwiches;
+    private List<Drink> drinks;
+    private List<Chip> chips;
 
-    public void  addSandwich(Sandwich sandwich){
-        order.add(sandwich);
+    public void addSandwich(Sandwich sandwich){
+        sandwiches.add(sandwich);
     }
-    public void  addChips(Chip chips) {
-        order.add(chips);
+    public void addChips(Chip chip) {
+        chips.add(chip);
     }
-    public void addDrinks (Drinks drinks){
-        order.add(drinks);
+    public void addDrink(Drink drink){
+        drinks.add(drink);
     }
 
+    public void checkOut(){
+        
+    }
 }
