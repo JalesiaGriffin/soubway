@@ -37,11 +37,4 @@ public class Drink implements Price {
     public double getPrice() {
         return 0;
     }
-
-    @Override
-    public void setPrice(double Price) {
-        
-    }
-
-
 }
