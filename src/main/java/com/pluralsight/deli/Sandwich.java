@@ -71,6 +71,10 @@ public class Sandwich implements Price {
     private boolean extraMeat;
     private String size;
 
+    (extraCheese = true){
+        else
+    }
+
 
 
 

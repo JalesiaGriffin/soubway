@@ -1,9 +1,11 @@
 package com.pluralsight.deli;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
-
+    private Order order = new Order();
 
     Scanner input = new Scanner(System.in);
     public void display(){
@@ -22,14 +24,17 @@ public class UserInterface {
         System.out.println("Enter your size:  \uD83E\uDD6A");
         String size = input.next();
         System.out.println(size);
-
-
+        while (!toppings.equals("done") ){
+            System.out.println("Add your toppings:  \uD83E\uDD6A");
+            System.out.println("When done type done. \uD83E\uDD6A");
+            toppings = input.nextLine();
 
     }
     public void processAddChips(){
 
         System.out.println("Add your chips: ");
         String name = input.next();
+        System.out.println(name);
 
 
     }

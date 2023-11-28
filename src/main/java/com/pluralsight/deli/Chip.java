@@ -10,6 +10,8 @@ public class Chip implements Price {
     private double price;
     private String name;
 
+    private  ArrayList<Chip> chips = null;
+
     public String getName() {
         return name;
     }
@@ -18,8 +20,9 @@ public class Chip implements Price {
         this.name = name;
     }
 
-    public Chip(String name ){
+    public Chip(String name,ArrayList chips) {
         this.name = name;
+        this.chips = chips;
 
     }
     @Override
@@ -35,6 +38,10 @@ public class Chip implements Price {
     public String toString(){
         return name + " $" + price;
     }
+
+
+
+
 
 
 
