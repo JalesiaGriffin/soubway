@@ -24,7 +24,7 @@ public class UserInterface {
         System.out.println(bread);
         System.out.println("Enter your size:  \uD83E\uDD6A");
         String size = input.next();
-        System.out.println(size);
+        System.out.println(getSize);
         ArrayList<Topping> toppings = new ArrayList<>();
         String topping = null;
         String choice = null;
@@ -36,16 +36,16 @@ public class UserInterface {
         } while (choice.equalsIgnoreCase("yes"));
         System.out.println("Would you like extra Cheese? Press Y for Yes and N for No ");
 
-        Boolean cheese = isExtraCheese();
+        Boolean extraCheese = isExtraCheese();
         switch (input){
             case "Y":
                 System.out.println("You added extra Cheese");
             case "N" :
-                cheese = false;
+                extraCheese = false;
                 break;
         }
      System.out.println("Would you like extra Meat? Press Y for Yes and N for No ");
-        Boolean extraMeat = true;
+        Boolean extraMeat = isExtraMeat;
         switch (input){
             case "Y":
                 System.out.println("You added extra Meat");
@@ -54,7 +54,7 @@ public class UserInterface {
                 break;
         }
         System.out.println("Would you like for it to be toasted? Press Y for Yes and N for No ");
-        Boolean toasted = true;
+        Boolean toasted = isToasted;
         switch (input){
             case "Y":
                 System.out.println("It will be toasted");
@@ -62,6 +62,7 @@ public class UserInterface {
                toasted = false;
                 break;
         }
+        order.addSandwich(new Sandwich(bread,toasted,extraCheese,extraMeat,size));
 
     }
     public void  processAddChips(){

@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class Sandwich implements Price {
 
-    //Jada please add Size
 
     private double price;
 
-    public Sandwich(double price, String bread, boolean toasted, boolean extraCheese, boolean extraMeat, String size) {
-        this.price = price;
+    public Sandwich(String bread, boolean toasted, boolean extraCheese, boolean extraMeat, String size) {
+
         this.bread = bread;
         this.toasted = toasted;
         this.extraCheese = extraCheese;
@@ -56,6 +55,7 @@ public class Sandwich implements Price {
     public void setExtraMeat(boolean extraMeat) {
         this.extraMeat = extraMeat;
     }
+
     public String getSize() {
         return size;
     }
@@ -72,13 +72,23 @@ public class Sandwich implements Price {
     private String size;
 
 
-
-
-
-
-
     @Override
     public double getPrice() {
+
+        if (getBread().equalsIgnoreCase("white,wheat, rye, wrap")) {
+
+            switch (getSize()) {
+                case "4":
+                    price = 5.50;
+                case "8":
+                    price = 7.00;
+                case "12":
+                    price = 8.50;
+            }
+        } else {
+            System.out.println("Please input the correct size: (4 , 8, or 12");
+
+        }
         return price;
     }
 
@@ -86,5 +96,7 @@ public class Sandwich implements Price {
     public void setPrice(double price) {
 
     }
-
 }
+
+
+
