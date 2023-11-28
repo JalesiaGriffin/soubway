@@ -1,7 +1,5 @@
 package com.pluralsight.deli;
-
 import java.util.ArrayList;
-
 import java.util.Scanner;
 
 public class UserInterface {
@@ -30,13 +28,13 @@ public class UserInterface {
         do {
             System.out.println("Add your toppings: \uD83E\uDD6A");
             topping = input.next();
-            System.out.println("Let's add another one! \uD83E\uDD6A");
+            System.out.println("Let's add another one! Yes or No  \uD83E\uDD6A");
             choice = input.next();
         } while (choice.equalsIgnoreCase("yes"));
         //----------------------------------
         System.out.println("Would you like extra Cheese? Press Y for Yes and N for No ");
 
-        Sandwich nameOfSandwichObject = (new Sandwich(bread,size));;
+        Sandwich nameOfSandwichObject = new Sandwich(bread,size);
         String userInput = input.next();
 
         boolean extraCheese;

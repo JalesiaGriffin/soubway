@@ -41,8 +41,6 @@ public class Sandwich implements Price {
     public boolean isExtraCheese() {
         // switch statement to add .30, .60, or .90 to the price depending on the size
 
-        if (isExtraCheese()) {
-
             switch (getSize()) {
                 case "4":
                     price = 0.30;
@@ -51,10 +49,7 @@ public class Sandwich implements Price {
                 case "12":
                     price = 0.90;
             }
-        } else {
-            System.out.println("Please input the correct size: (4 , 8, or 12");
 
-        }
         return extraCheese;
     }
 
@@ -63,7 +58,7 @@ public class Sandwich implements Price {
     }
 
     public boolean isExtraMeat() {
-        if (isExtraMeat()) {
+
 
             switch (getSize()) {
                 case "4":
@@ -73,10 +68,6 @@ public class Sandwich implements Price {
                 case "12":
                     price = 1.50;
             }
-        } else {
-            System.out.println("Please input the correct size: (4 , 8, or 12");
-
-        }
         return extraMeat;
     }
 
