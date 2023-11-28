@@ -1,9 +1,12 @@
 package com.pluralsight.deli;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class Chip implements Price {
+
+
+
+
     private double price;
     private String name;
 
@@ -15,9 +18,9 @@ public class Chip implements Price {
         this.name = name;
     }
 
-    public Chip(String name, double price) {
+    public Chip(String name ){
         this.name = name;
-        this.price = price;
+
     }
     @Override
     public void setPrice(double price) {
@@ -26,12 +29,18 @@ public class Chip implements Price {
 
     @Override
     public double getPrice() {
-        return price;
+        return price = 1.50;
     }
 
     public String toString(){
         return name + " $" + price;
     }
+
+
+
+
+
+
 
 
 

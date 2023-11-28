@@ -1,9 +1,11 @@
 package com.pluralsight.deli;
-
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
+
+
+    Scanner input = new Scanner(System.in);
     public void display(){
         displayMenu();
     }
@@ -14,10 +16,21 @@ public class UserInterface {
 
 
     public void processAddSandwich(){
+        System.out.println("Enter your bread:  \uD83E\uDD6A");
+        String bread = input.next();
+        System.out.println(bread);
+        System.out.println("Enter your size:  \uD83E\uDD6A");
+        String size = input.next();
+        System.out.println(size);
+
 
 
     }
     public void processAddChips(){
+
+        System.out.println("Add your chips: ");
+        String name = input.next();
+
 
     }
     public void processAddDrinks(){
