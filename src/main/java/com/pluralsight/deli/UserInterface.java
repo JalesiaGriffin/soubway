@@ -24,20 +24,24 @@ public class UserInterface {
         System.out.println(bread);
         System.out.println("Enter your size:  \uD83E\uDD6A");
         String size = input.next();
-        System.out.println(getSize);
+        System.out.println(getSize); // if u want to print out the size u can just put size not getSize
         ArrayList<Topping> toppings = new ArrayList<>();
         String topping = null;
         String choice = null;
         do {
             System.out.println("Add your toppings: \uD83E\uDD6A");
             topping = input.next();
+            // add the topping to the toppings ArrayList
             System.out.println("Let's add another one! \uD83E\uDD6A");
             choice = input.next();
         } while (choice.equalsIgnoreCase("yes"));
         System.out.println("Would you like extra Cheese? Press Y for Yes and N for No ");
+        // store the user's answer inside a variable
 
-        Boolean extraCheese = isExtraCheese();
-        switch (input){
+        // Create sandwich object
+
+        Boolean extraCheese = isExtraCheese(); // NameOfSandwichObject.isExtraCheese();
+        switch (input){  //use the name of the variable u create on line 39 instead of input
             case "Y":
                 System.out.println("You added extra Cheese");
             case "N" :
@@ -45,8 +49,8 @@ public class UserInterface {
                 break;
         }
      System.out.println("Would you like extra Meat? Press Y for Yes and N for No ");
-        Boolean extraMeat = isExtraMeat;
-        switch (input){
+        Boolean extraMeat = isExtraMeat; // NameOfSandwichObject.isExtraMeat();
+        switch (input){ //use the name of the variable u create on line 39 instead of input
             case "Y":
                 System.out.println("You added extra Meat");
             case "N" :
@@ -54,8 +58,8 @@ public class UserInterface {
                 break;
         }
         System.out.println("Would you like for it to be toasted? Press Y for Yes and N for No ");
-        Boolean toasted = isToasted;
-        switch (input){
+        Boolean toasted = isToasted; // NameOfSandwichObject.isToasted();
+        switch (input){ //use the name of the variable u create on line 39 instead of input
             case "Y":
                 System.out.println("It will be toasted");
             case "N" :
@@ -69,7 +73,7 @@ public class UserInterface {
         System.out.println("Add your chips: ");
         String name = input.next();
         System.out.println(name);
-
+        // add chips to order "order.addChips(new Chip(name))"
 
     }
     public void processAddDrinks(){
@@ -79,12 +83,12 @@ public class UserInterface {
             String flavor = input.next();
             System.out.println(flavor);
         order.addDrink(new Drink(size, flavor));
-        }
+    }
 
 
     public void processCheckout(){
     System.out.println("Let's finish up your order");
-    System.out.println(checkOut);
+    System.out.println(checkOut); // order.checkout(); will print it out
 
     }
 

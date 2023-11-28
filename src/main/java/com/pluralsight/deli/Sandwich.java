@@ -7,7 +7,7 @@ public class Sandwich implements Price {
 
     private double price;
 
-    public Sandwich(String bread, boolean toasted, boolean extraCheese, boolean extraMeat, String size) {
+    public Sandwich(String bread, boolean toasted, boolean extraCheese, boolean extraMeat, String size) { // only needs bread and size
 
         this.bread = bread;
         this.toasted = toasted;
@@ -41,6 +41,7 @@ public class Sandwich implements Price {
     }
 
     public boolean isExtraCheese() {
+        // switch statement to add .30, .60, or .90 to the price depending on the size
         return extraCheese;
     }
 
@@ -49,6 +50,7 @@ public class Sandwich implements Price {
     }
 
     public boolean isExtraMeat() {
+        // switch statement to add .50, 1.00, or 1.50 to the price depending on the size
         return extraMeat;
     }
 
