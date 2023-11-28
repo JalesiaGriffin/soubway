@@ -23,7 +23,7 @@ public class ReceiptFileManager {
     public void saveReceiptFile (Order order) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             //get receipt details from the order object
-            String receiptDetails = order.checkOut();
+           // String receiptDetails = order.checkOut();
 
             LocalDateTime currentDateTime = LocalDateTime.now();
             DateTimeFormatter fm = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -31,7 +31,7 @@ public class ReceiptFileManager {
 
             //write date, time & receipt details to file
             writer.write("Date and Time: " + formattedDateTime + "\n" );
-            writer.write(receiptDetails);
+           // writer.write(receiptDetails);
 
             System.out.println("Receipt file saved successfully. ");
         }catch (IOException e) {

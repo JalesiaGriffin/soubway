@@ -22,10 +22,8 @@ public class UserInterface {
 
         System.out.println("Enter your bread:  \uD83E\uDD6A");
         String bread = input.next();
-        System.out.println(bread);
         System.out.println("Enter your size:  \uD83E\uDD6A");
         String size = input.next();
-        System.out.println(size);
         ArrayList<Topping> toppings = new ArrayList<>();
         String topping = null;
         String choice = null;
@@ -35,40 +33,48 @@ public class UserInterface {
             System.out.println("Let's add another one! \uD83E\uDD6A");
             choice = input.next();
         } while (choice.equalsIgnoreCase("yes"));
+        //----------------------------------
         System.out.println("Would you like extra Cheese? Press Y for Yes and N for No ");
 
-        Sandwich nameOfSandwichObject = null;
+        Sandwich nameOfSandwichObject = (new Sandwich(bread,size));;
+        String userInput = input.next();
 
-        boolean extraCheese = nameOfSandwichObject.isExtraCheese();
+        boolean extraCheese;
 
-        if ("Y".equals(nameOfSandwichObject)) {
+        if ( userInput.equalsIgnoreCase("Y"))  {
+            nameOfSandwichObject.isExtraCheese();
             System.out.println("You added extra Cheese");
 
-        } else if ("N".equals(nameOfSandwichObject)) {
+        } else if (userInput.equalsIgnoreCase("N")) {
             extraCheese = false;
         }
-
+      //---------------------------------------------
      System.out.println("Would you like extra Meat? Press Y for Yes and N for No ");
+       userInput = input.next();
 
-        boolean extraMeat = nameOfSandwichObject.isExtraMeat();
+        boolean extraMeat;
 
-        if ("Y".equals(nameOfSandwichObject)) {
+        if ( userInput.equalsIgnoreCase("Y")) {
+             nameOfSandwichObject.isExtraMeat();
             System.out.println("You added extra Meat");
 
-        } else if ("N".equals(nameOfSandwichObject)) {
+        } else if (userInput.equalsIgnoreCase("N")) {
             extraMeat = false;
         }
-
+        //-------------------------------------------------------
         System.out.println("Would you like for it to be toasted? Press Y for Yes and N for No ");
+        userInput = input.next();
+        boolean toasted ;
 
-        boolean toasted = nameOfSandwichObject.isToasted();
 
-        if  ("Y".equals(nameOfSandwichObject)) {
+
+        if  (userInput.equalsIgnoreCase("Y")) {
+            nameOfSandwichObject.isToasted();
             System.out.println("It will be toasted");
-        } else if ( "N".equals(nameOfSandwichObject)) {
+        } else if ( userInput.equalsIgnoreCase("N")) {
                toasted = false;
         }
-        order.addSandwich(new Sandwich(bread,size));
+        order.addSandwich(nameOfSandwichObject);
 
     }
     public void  processAddChips(){
@@ -79,9 +85,10 @@ public class UserInterface {
 
     }
     public void processAddDrinks(){
-            System.out.println("Add your drink: ");
+            System.out.println("Select drink size: \uD83E\uDD64");
             String size = input.next();
             System.out.println(size);
+        System.out.println("Select drink flavor: \uD83E\uDD64");
             String flavor = input.next();
             System.out.println(flavor);
         order.addDrink(new Drink(size, flavor));
