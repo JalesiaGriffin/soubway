@@ -7,6 +7,12 @@ public class Order {
     private List<Drink> drinks;
     private List<Chip> chips;
 
+    public Order() {
+        this.sandwiches = new ArrayList<>();
+        this.drinks = new ArrayList<>();
+        this.chips = new ArrayList<>();
+    }
+
     public void addSandwich(Sandwich sandwich){
         sandwiches.add(sandwich);
     }
