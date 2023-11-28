@@ -10,12 +10,15 @@ public class Order {
     public void addSandwich(Sandwich sandwich){
         sandwiches.add(sandwich);
     }
+    public void removeSandwich(Sandwich sandwich){sandwiches.remove(sandwich);}
     public void addChips(Chip chip) {
         chips.add(chip);
     }
+    public void removeChip(Sandwich sandwich){sandwiches.remove(sandwich);}
     public void addDrink(Drink drink){
         drinks.add(drink);
     }
+    public void removeDrink(Drink drink){drinks.remove(drink);}
 
     public void checkOut(){
         System.out.println("Sandwiches");
