@@ -17,21 +17,54 @@ public class UserInterface {
     }
 
 
-    public void processAddSandwich(){
+    public void processAddSandwich() {
+
         System.out.println("Enter your bread:  \uD83E\uDD6A");
         String bread = input.next();
         System.out.println(bread);
         System.out.println("Enter your size:  \uD83E\uDD6A");
         String size = input.next();
         System.out.println(size);
-        while (!toppings.equals("done") ){
-            System.out.println("Add your toppings:  \uD83E\uDD6A");
-            System.out.println("When done type done. \uD83E\uDD6A");
-            toppings = input.nextLine();
+        ArrayList<Topping> toppings = new ArrayList<>();
+        String topping = null;
+        String choice = null;
+        do {
+            System.out.println("Add your toppings: \uD83E\uDD6A");
+            topping = input.next();
+            System.out.println("Let's add another one! \uD83E\uDD6A");
+            choice = input.next();
+        } while (choice.equalsIgnoreCase("yes"));
+        System.out.println("Would you like extra Cheese? Press Y for Yes and N for No ");
+
+        Boolean cheese = isExtraCheese();
+        switch (input){
+            case "Y":
+                System.out.println("You added extra Cheese");
+            case "N" :
+                cheese = false;
+                break;
+        }
+     System.out.println("Would you like extra Meat? Press Y for Yes and N for No ");
+        Boolean extraMeat = true;
+        switch (input){
+            case "Y":
+                System.out.println("You added extra Meat");
+            case "N" :
+               extraMeat = false;
+                break;
+        }
+        System.out.println("Would you like for it to be toasted? Press Y for Yes and N for No ");
+        Boolean toasted = true;
+        switch (input){
+            case "Y":
+                System.out.println("It will be toasted");
+            case "N" :
+               toasted = false;
+                break;
+        }
 
     }
-    public void processAddChips(){
-
+    public void  processAddChips(){
         System.out.println("Add your chips: ");
         String name = input.next();
         System.out.println(name);
@@ -39,15 +72,24 @@ public class UserInterface {
 
     }
     public void processAddDrinks(){
+            System.out.println("Add your drink: ");
+            String size = input.next();
+            System.out.println(size);
+            String flavor = input.next();
+            System.out.println(flavor);
+        order.addDrink(new Drink(size, flavor));
+        }
 
-    }
+
     public void processCheckout(){
+    System.out.println("Let's finish up your order");
+    System.out.println(checkOut);
 
     }
 
     public void displayMenu(){
         Scanner scanner = new Scanner(System.in);
-        boolean (acting) = true;
+        Boolean acting = true;
         while (acting) {
             System.out.println("Welcome to Soubway please choose your soub");
             System.out.println("Would you like to start a new order?");
