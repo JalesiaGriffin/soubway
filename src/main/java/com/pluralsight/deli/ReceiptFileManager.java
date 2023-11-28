@@ -2,8 +2,18 @@ package com.pluralsight.deli;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class ReceiptFileManager {
+    public static void main(String[] args) {
+        ReceiptFileManager receiptFileManager = new ReceiptFileManager("receipt.txt");
+
+
+        Order order = new Order(" ", " ", 20.00);
+
+        //Save receipt using order object
+        receiptFileManager.saveReceiptFile(order);
+    }
 
     private String fileName;
 
@@ -11,13 +21,18 @@ public class ReceiptFileManager {
         this.fileName = fileName;
     }
 
-    public  saveReceiptFile (Order order) {
+    public void saveReceiptFile (Order order) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             //get receipt details from the order object
-            String receiptDetails = order.???();
+            String receiptDetails = order.checkOut();
 
             //write receipt details to file
             writer.write(receiptDetails);
+
+            System.out.println("Receipt file saved successfully");
+
+        } catch(IOException e) {
+            System.out.println("Error saving receipt file: " + e.getMessage());
         }
     }
 
