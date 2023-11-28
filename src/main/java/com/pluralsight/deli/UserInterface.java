@@ -1,7 +1,7 @@
 package com.pluralsight.deli;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -24,7 +24,7 @@ public class UserInterface {
         System.out.println(bread);
         System.out.println("Enter your size:  \uD83E\uDD6A");
         String size = input.next();
-        System.out.println(getSize);
+        System.out.println(size);
         ArrayList<Topping> toppings = new ArrayList<>();
         String topping = null;
         String choice = null;
@@ -36,40 +36,45 @@ public class UserInterface {
         } while (choice.equalsIgnoreCase("yes"));
         System.out.println("Would you like extra Cheese? Press Y for Yes and N for No ");
 
-        Boolean extraCheese = isExtraCheese();
-        switch (input){
-            case "Y":
-                System.out.println("You added extra Cheese");
-            case "N" :
-                extraCheese = false;
-                break;
+        Sandwich nameOfSandwichObject = null;
+
+        Boolean extraCheese = nameOfSandwichObject.isExtraCheese();
+
+        if ("Y".equals(nameOfSandwichObject)) {
+            System.out.println("You added extra Cheese");
+
+        } else if ("N".equals(nameOfSandwichObject)) {
+            extraCheese = false;
         }
+
      System.out.println("Would you like extra Meat? Press Y for Yes and N for No ");
-        Boolean extraMeat = isExtraMeat;
-        switch (input){
-            case "Y":
-                System.out.println("You added extra Meat");
-            case "N" :
-               extraMeat = false;
-                break;
+
+        Boolean extraMeat = nameOfSandwichObject.isExtraMeat();
+
+        if ("Y".equals(nameOfSandwichObject)) {
+            System.out.println("You added extra Meat");
+
+        } else if ("N".equals(nameOfSandwichObject)) {
+            extraMeat = false;
         }
+
         System.out.println("Would you like for it to be toasted? Press Y for Yes and N for No ");
-        Boolean toasted = isToasted;
-        switch (input){
-            case "Y":
-                System.out.println("It will be toasted");
-            case "N" :
+
+        Boolean toasted = nameOfSandwichObject.isToasted();
+
+        if  ("Y".equals(nameOfSandwichObject)) {
+            System.out.println("It will be toasted");
+        } else if ( "N".equals(nameOfSandwichObject)) {
                toasted = false;
-                break;
         }
-        order.addSandwich(new Sandwich(bread,toasted,extraCheese,extraMeat,size));
+        order.addSandwich(new Sandwich(bread,size));
 
     }
     public void  processAddChips(){
         System.out.println("Add your chips: ");
         String name = input.next();
         System.out.println(name);
-
+        order.addChips(new Chip(name));
 
     }
     public void processAddDrinks(){
@@ -84,8 +89,7 @@ public class UserInterface {
 
     public void processCheckout(){
     System.out.println("Let's finish up your order");
-    System.out.println(checkOut);
-
+    order.checkOut();
     }
 
     public void displayMenu(){

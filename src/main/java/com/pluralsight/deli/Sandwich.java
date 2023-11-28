@@ -7,12 +7,10 @@ public class Sandwich implements Price {
 
     private double price;
 
-    public Sandwich(String bread, boolean toasted, boolean extraCheese, boolean extraMeat, String size) { // only needs bread and size
+    public Sandwich(String bread, String size) {
 
         this.bread = bread;
-        this.toasted = toasted;
-        this.extraCheese = extraCheese;
-        this.extraMeat = extraMeat;
+
         this.size = size;
     }
 
@@ -42,6 +40,21 @@ public class Sandwich implements Price {
 
     public boolean isExtraCheese() {
         // switch statement to add .30, .60, or .90 to the price depending on the size
+
+        if (isExtraCheese()) {
+
+            switch (getSize()) {
+                case "4":
+                    price = 0.30;
+                case "8":
+                    price = 0.60;
+                case "12":
+                    price = 0.90;
+            }
+        } else {
+            System.out.println("Please input the correct size: (4 , 8, or 12");
+
+        }
         return extraCheese;
     }
 
@@ -50,7 +63,20 @@ public class Sandwich implements Price {
     }
 
     public boolean isExtraMeat() {
-        // switch statement to add .50, 1.00, or 1.50 to the price depending on the size
+        if (isExtraMeat()) {
+
+            switch (getSize()) {
+                case "4":
+                    price = 0.50;
+                case "8":
+                    price = 1.00;
+                case "12":
+                    price = 1.50;
+            }
+        } else {
+            System.out.println("Please input the correct size: (4 , 8, or 12");
+
+        }
         return extraMeat;
     }
 
