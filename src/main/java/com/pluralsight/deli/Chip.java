@@ -1,7 +1,5 @@
 package com.pluralsight.deli;
 
-import java.util.ArrayList;
-
 public class Chip implements Price {
 
 
@@ -35,30 +33,13 @@ public class Chip implements Price {
 
     public String toString() {
         if (getName().equalsIgnoreCase("pringles, sunchips, doritos, lays, cheetos")) {
-            return name + " $" + price;
+
         } else {
             System.out.println("Sorry we do not have those. Please choose from the following: " +
                     "Pringles, Sunchips, Doritos, Lays, Cheetos");
         }
-
+        return name + " $" + price;
     }
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

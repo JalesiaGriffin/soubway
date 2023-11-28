@@ -24,7 +24,7 @@ public class UserInterface {
         System.out.println(bread);
         System.out.println("Enter your size:  \uD83E\uDD6A");
         String size = input.next();
-        System.out.println(getSize);
+        System.out.println(size);
         ArrayList<Topping> toppings = new ArrayList<>();
         String topping = null;
         String choice = null;
