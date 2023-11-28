@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
-    private Order order = new Order();
+    private Order order;
 
     Scanner input = new Scanner(System.in);
     public void display(){
@@ -13,6 +13,7 @@ public class UserInterface {
     }
 
     public void startNewOrder(){
+        order = new Order();
 
     }
 
@@ -38,7 +39,7 @@ public class UserInterface {
 
         Sandwich nameOfSandwichObject = null;
 
-        Boolean extraCheese = nameOfSandwichObject.isExtraCheese();
+        boolean extraCheese = nameOfSandwichObject.isExtraCheese();
 
         if ("Y".equals(nameOfSandwichObject)) {
             System.out.println("You added extra Cheese");
@@ -49,7 +50,7 @@ public class UserInterface {
 
      System.out.println("Would you like extra Meat? Press Y for Yes and N for No ");
 
-        Boolean extraMeat = nameOfSandwichObject.isExtraMeat();
+        boolean extraMeat = nameOfSandwichObject.isExtraMeat();
 
         if ("Y".equals(nameOfSandwichObject)) {
             System.out.println("You added extra Meat");
@@ -60,7 +61,7 @@ public class UserInterface {
 
         System.out.println("Would you like for it to be toasted? Press Y for Yes and N for No ");
 
-        Boolean toasted = nameOfSandwichObject.isToasted();
+        boolean toasted = nameOfSandwichObject.isToasted();
 
         if  ("Y".equals(nameOfSandwichObject)) {
             System.out.println("It will be toasted");
@@ -94,7 +95,7 @@ public class UserInterface {
 
     public void displayMenu(){
         Scanner scanner = new Scanner(System.in);
-        Boolean acting = true;
+        boolean acting = true;
         while (acting) {
             System.out.println("Welcome to Soubway please choose your soub");
             System.out.println("Would you like to start a new order?");
