@@ -99,6 +99,7 @@ public class UserInterface {
     order.checkOut();
     }
 
+    // Looping through the display menu
     public void displayMenu(){
         Scanner scanner = new Scanner(System.in);
         boolean acting = true;
