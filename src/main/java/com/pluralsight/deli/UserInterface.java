@@ -100,7 +100,7 @@ public class UserInterface {
     }
 
     // Looping through the display menu
-    public void displayMenu(){
+    public void displayMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean acting = true;
         while (acting) {
@@ -111,42 +111,50 @@ public class UserInterface {
 
             System.out.println("You selected \uD83E\uDD6A");
             String firstInput = scanner.nextLine().trim();
-            switch (firstInput){
+            switch (firstInput) {
                 case "1":
                     startNewOrder();
+                    trueMenu();
                 case "0":
                     acting = false;
                     break;
             }
+        }
+    }
+        //----- Second part of the menu if they want to start a new order
+    public void trueMenu() {
+            Scanner scanner = new Scanner(System.in);
             System.out.println("Alright! Let's start your order!");
             System.out.println("1.) Add soub");
             System.out.println("2.) Add drink");
             System.out.println("3.) Add chips");
             System.out.println("4.) Checkout");
             System.out.println("0.) Cancel Order");
-
             System.out.println("You selected \uD83E\uDD6A");
+
             String input = scanner.nextLine().trim();
+            boolean acts = true;
+            while (acts) {
 
             switch (input) {
                 case "1":
                     processAddSandwich();
                     break;
                 case "2":
-                    processAddDrinks();
+                    processAddChips();
                     break;
                 case "3":
-                    processAddChips();
+                    processAddDrinks();
                     break;
                 case "4":
                     processCheckout();
                     break;
                 case "0":
-                    acting = false;
+                    acts = false;
                     break;
             }
-
+        }
         }
     }
 
-}
+
