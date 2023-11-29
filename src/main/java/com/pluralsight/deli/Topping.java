@@ -2,12 +2,10 @@ package com.pluralsight.deli;
 
 public abstract class Topping implements Price {
 private String name;
-private String size;
 private double price;
 
-    public Topping(String name, String size) {
+    public Topping(String name) {
         this.name = name;
-        this.size = size;
     }
 
     public String getName() {
@@ -22,10 +20,8 @@ private double price;
         this.price = price;
     }
 
-    public String getSize() {
-        return size;
-    }
+    public double getPrice(){return 0.0;};
 
-    public abstract double getPrice();
+    public double getPrice(String size){return price;}
 
 }

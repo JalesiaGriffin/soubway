@@ -41,13 +41,17 @@ public class Sandwich implements Price {
     public boolean isExtraCheese() {
         // switch statement to add .30, .60, or .90 to the price depending on the size
 
-            switch (getSize()) {
+            switch (size) {
                 case "4":
-                    price = 0.30;
+                    price += 0.30;
+                    break;
                 case "8":
-                    price = 0.60;
+                    price += 0.60;
+                    break;
                 case "12":
-                    price = 0.90;
+                    price += 0.90;
+                    break;
+                default: price += 0.0;
             }
 
         return extraCheese;
@@ -60,13 +64,17 @@ public class Sandwich implements Price {
     public boolean isExtraMeat() {
 
 
-            switch (getSize()) {
+            switch (size) {
                 case "4":
-                    price = 0.50;
+                    price += 0.50;
+                    break;
                 case "8":
-                    price = 1.00;
+                    price += 1.00;
+                    break;
                 case "12":
-                    price = 1.50;
+                    price += 1.50;
+                    break;
+                default: price += 0;
             }
         return extraMeat;
     }
@@ -99,10 +107,15 @@ public class Sandwich implements Price {
             switch (getSize()) {
                 case "4":
                     price = 5.50;
+                    break;
                 case "8":
                     price = 7.00;
+                    break;
                 case "12":
                     price = 8.50;
+                    break;
+                default:
+                    System.out.println("invalid size.");
             }
         } else {
             System.out.println("Please input the correct size: (4 , 8, or 12");

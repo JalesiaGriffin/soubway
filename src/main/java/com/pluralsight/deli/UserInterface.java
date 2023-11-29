@@ -28,6 +28,7 @@ public class UserInterface {
         do {
             System.out.println("Add your toppings: \uD83E\uDD6A");
             topping = input.next();
+            toppings.add(new RegularTopping(topping));
             System.out.println("Let's add another one! Yes or No  \uD83E\uDD6A");
             choice = input.next();
         } while (choice.equalsIgnoreCase("yes"));
