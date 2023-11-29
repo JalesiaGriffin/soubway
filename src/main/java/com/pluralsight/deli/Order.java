@@ -27,29 +27,40 @@ public class Order {
     public void removeDrink(Drink drink){drinks.remove(drink);}
 
     public void checkOut(){
-        System.out.println("Sandwiches");
+        receipt();
+    }
+
+    public String receipt() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("\nSandwiches");
         sandwiches.forEach(s -> {
-            System.out.println("\n" + s.getBread() + " Sandwich");
-            System.out.println("\nToppings");
-            s.getToppings().forEach(t -> System.out.println("- "+ t));
+            sb.append("\n").append(s.getBread()).append(" Sandwich");
+
+            sb.append("\nToppings");
+            s.getToppings().forEach(t -> sb.append("- ").append(t));
         });
 
-        System.out.println("\nDrinks");
+        sb.append("\nDrinks");
         drinks.forEach(d ->{
-            System.out.println("-" + d.getSize() + " " + d.getFlavor());
+            sb.append("-").append(d.getSize()).append(" ").append(d.getFlavor());
         });
 
-        System.out.println("\nChips");
+        sb.append("\nChips");
         drinks.forEach(c ->{
-            System.out.println("-" + c.getSize() + " " + c.getFlavor());
+            sb.append("-").append(c.getSize()).append(c.getFlavor());
         });
 
+        sb.append("\n").append("Total: $").append(getTotalPrice());
+
+        return sb.toString();
+    }
+
+    public double getTotalPrice(){
         double sandwichesTotal = sandwiches.stream().mapToDouble(Sandwich::getPrice).sum();
         double drinksTotal = drinks.stream().mapToDouble(Drink::getPrice).sum();
         double chipsTotal = chips.stream().mapToDouble(Chip::getPrice).sum();
-        double totalPrice = sandwichesTotal + drinksTotal + chipsTotal;
 
-        System.out.println("\n\nTotal Price");
-        System.out.println(totalPrice);
+        return sandwichesTotal + drinksTotal + chipsTotal;
     }
 }

@@ -1,4 +1,4 @@
-/*package com.pluralsight.deli;
+package com.pluralsight.deli;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -8,7 +8,10 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptFileManager {
 
-/*ReceiptFileManager receiptFileManager= new ReceiptFileManager();
+
+// You don't need this part in here, we would just save it in the SandwichShop main program
+/*
+        ReceiptFileManager receiptFileManager= new ReceiptFileManager();
         Order order= new Order();
         receiptFileManager.saveReceiptFile(order);*/
 
@@ -40,4 +43,4 @@ public class ReceiptFileManager {
 
 
 
-}*/
+}
