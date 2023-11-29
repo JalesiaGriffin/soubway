@@ -1,4 +1,4 @@
-package com.pluralsight.deli;
+/*package com.pluralsight.deli;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -26,9 +26,10 @@ public class ReceiptFileManager {
 
             //write date, time & receipt details to file
             writer.write("Date and Time: " + formattedDateTime + "\n" );
-           // writer.write(receiptDetails + "\n\n");
+
 
             writer.close();
+
 
             System.out.println("Receipt file saved successfully. ");
         }catch (IOException e) {
@@ -39,4 +40,4 @@ public class ReceiptFileManager {
 
 
 
-}
+}*/

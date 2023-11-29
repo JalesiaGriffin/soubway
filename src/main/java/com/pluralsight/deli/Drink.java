@@ -35,7 +35,14 @@ public class Drink implements Price {
 
     @Override
     public double getPrice() {
-        return 0;
+        double price = 0.0;
+        switch(size.toLowerCase()){
+            case "small"-> price = .75;
+            case "medium" -> price = 1.50;
+            case "large" -> price = 2.25;
+            default -> System.out.println("invalid.");
+        }
+        return price;
     }
 
     @Override
