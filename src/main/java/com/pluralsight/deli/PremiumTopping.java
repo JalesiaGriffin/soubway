@@ -1,25 +1,27 @@
 package com.pluralsight.deli;
 
-public class PremiumTopping extends Topping {
-    enum meats {steak, ham, salami, roastbeef, chicken, bacon};
-    enum cheeses {american, provolone, cheddar, swiss};
+import java.util.*;
 
-    public PremiumTopping(String name, String size) {
-        super(name, size);
+public class PremiumTopping extends Topping {
+    private final List<String> meats = new ArrayList<>(Arrays.asList("steak", "ham", "salami", "roast beef", "chicken", "bacon"));
+    private final List<String> cheese = new ArrayList<>(Arrays.asList("american", "provolone", "cheddar", "swiss"));
+
+    public PremiumTopping(String name) {
+        super(name);
     }
 
-    public double getPrice(){
+    @Override
+    public double getPrice(String size){
         double price = 0.0;
-
         if (isMeat()){
-            switch(getSize()){
+            switch(size){
                 case "4"-> price = 1.00;
                 case "8" -> price = 2.00;
                 case "12" -> price = 3.00;
                 default -> System.out.println("invalid.");
             }
         } else if (isCheese()){
-            switch(getSize()){
+            switch(size){
                 case "4"-> price = .75;
                 case "8" -> price = 1.50;
                 case "12" -> price = 2.25;
@@ -30,20 +32,10 @@ public class PremiumTopping extends Topping {
     }
 
     private boolean isMeat(){
-        try {
-            meats.valueOf(getName().toLowerCase());
-            return true;
-        } catch (IllegalArgumentException e){
-            return false;
-        }
+        return meats.contains(getName().toLowerCase());
     }
 
     private boolean isCheese(){
-        try{
-            cheeses.valueOf(getName().toLowerCase());
-            return true;
-        } catch (IllegalArgumentException e){
-            return false;
-        }
+        return cheese.contains(getName().toLowerCase());
     }
 }
