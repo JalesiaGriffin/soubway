@@ -7,15 +7,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReceiptFileManager {
-
-
-// You don't need this part in here, we would just save it in the SandwichShop main program
-/*
-        ReceiptFileManager receiptFileManager= new ReceiptFileManager();
-        Order order= new Order();
-        receiptFileManager.saveReceiptFile(order);*/
-
-
     public void saveReceiptFile (Order order) {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter fm = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
@@ -39,8 +30,4 @@ public class ReceiptFileManager {
             System.out.println("Error saving receipt file " + e.getMessage());
         }
     }
-
-
-
-
 }
