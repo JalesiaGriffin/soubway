@@ -7,12 +7,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReceiptFileManager {
-
-/*ReceiptFileManager receiptFileManager= new ReceiptFileManager();
-        Order order= new Order();
-        receiptFileManager.saveReceiptFile(order);*/
-
-
     public void saveReceiptFile (Order order) {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter fm = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
@@ -41,3 +35,4 @@ public class ReceiptFileManager {
 
 
 }
+
