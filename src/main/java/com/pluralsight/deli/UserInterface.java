@@ -8,11 +8,12 @@ public class UserInterface {
     private Order order;
 
     Scanner input = new Scanner(System.in);
-    public void display(){
+
+    public void display() {
         displayMenu();
     }
 
-    public void startNewOrder(){
+    public void startNewOrder() {
         order = new Order();
 
     }
@@ -181,11 +182,15 @@ public class UserInterface {
             }
             if (!chipFound) {
                 System.out.println("Sorry, we do not carry that chip.");
+
             }
         } while (!chipFound);
 
+
         order.addChips(new Chip(chip));
     }
+
+
     //------- Adding drinks
 
     public void processAddDrinks(){
@@ -252,6 +257,7 @@ public class UserInterface {
                 case "1":
                     startNewOrder();
                     trueMenu();
+                    break;
                 case "0":
                     acting = false;
                     break;

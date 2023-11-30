@@ -10,15 +10,53 @@ employees and customers.
 
 ----------------------------
 #### CLASS DIAGRAM
-![HERE](Soubway-UML.jpeg)
+![Soubway-UML.jpeg](IMG%2FSoubway-UML.jpeg)
 
 ----------------------------
 ### User Stories
 
-----------------------------
-### Setup
+User stories are testimonials from a targeted end user's perspective.
+A user story typically follows this format:
 
+"As a[type of user], I want [an action] so that [benefit/value]."
+
+The examples we'll be listing today are:
+
+![UserStory1.PNG](IMG%2FUserStory1.PNG)
+
+![UserStory2.PNG](IMG%2FUserStory2.PNG)
+
+----------------------------
+### Setup/ How to:
+
+
+#### In the Terminal:
+
+- First you clone or download this repository to your local device.
+
+![SetUp.PNG](IMG%2FSetUp.PNG)
+
+- Compile and run Soubway.java
+- Create a new branch: git checkout -b feature-branchname
+- Make changes/updates to your code, then stage and commit: git add ., git commit -m "Add feature"
+
+
+And once you've finished these steps you are ready to push your code to GitHub for other 
+team members to see. In order to do that follow the steps below:
+
+##### Squash/ Merge
+
+-  Push the branch: git push origin feature-branchname
+- On GitHub: Create and merge the pull request using "Squash and Merge"
+- Delete the branch on GitHub after merging.
 - 
+#### In the Terminal:
+
+- Switch to master branch: git checkout master
+- Pull latest changes: git pull origin master
+- Delete local feature branch: git branch -D feature-branchname
+
+
 ----------------------------
 ### Technologies Used
 
@@ -29,10 +67,13 @@ employees and customers.
 ### Demo
 
 - Main Menu
-![HERE](NewOrder.PNG)
+
+![NewOrder.PNG](IMG%2FNewOrder.PNG)
+
 
 - Start of Order
-![HERE](Options.PNG)
+
+![Options.PNG](IMG%2FOptions.PNG)
 
 
 
@@ -59,7 +100,6 @@ employees and customers.
 
 Special thanks to Raymond for pointing us in the right direction
 and challenging us. Kudos to my fellow group mates Jada & Jalesia. We communicated effectively
-& helped each other whenever & wherever we could at a time where its so easy to just
-put your head down & worry about yourself & im grateful to be a apart of
+& helped each other whenever & wherever we could and im grateful to be a part of
 the BEST TEAM!!!!
 
