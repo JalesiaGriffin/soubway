@@ -27,7 +27,7 @@ public class Order {
     public void removeDrink(Drink drink){drinks.remove(drink);}
 
     public void checkOut(){
-        receipt();
+        System.out.println(receipt());
     }
 
     public String receipt() {
