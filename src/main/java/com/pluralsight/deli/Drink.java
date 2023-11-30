@@ -8,6 +8,7 @@ public class Drink implements Price {
     public Drink(String size, String flavor) {
         this.size = size;
         this.flavor = flavor;
+        this.price = getPrice();
     }
 
     public String getSize() {
@@ -37,9 +38,9 @@ public class Drink implements Price {
     @Override
     public double getPrice() {
         switch(size.toLowerCase()){
-            case "small"-> price = 0.75;
-            case "medium" -> price = 1.50;
-            case "large" -> price = 2.25;
+            case "small" -> price = 2.00;
+            case "medium" -> price = 2.50;
+            case "large" -> price = 3.00;
             default -> System.out.println("invalid.");
         }
         return price;

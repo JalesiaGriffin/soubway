@@ -1,8 +1,6 @@
 package com.pluralsight.deli;
 
 public class Chip implements Price {
-
-    private double price;
     private String name;
 
     public Chip(String name) {
@@ -19,7 +17,7 @@ public class Chip implements Price {
 
     @Override
     public double getPrice() {
-        return price = 1.50;
+        return 1.50;
     }
 
 }
