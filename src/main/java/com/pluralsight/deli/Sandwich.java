@@ -1,10 +1,12 @@
 package com.pluralsight.deli;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Sandwich implements Price {
     private String bread;
-    private ArrayList<Topping> toppings = new ArrayList<Topping>();
+    private ArrayList<Topping> toppings;
     private boolean toasted;
     private boolean extraCheese;
     private boolean extraMeat;
@@ -41,23 +43,40 @@ public class Sandwich implements Price {
         this.toasted = toasted;
     }
 
-    public boolean isExtraCheese() {
-        // switch statement to add .30, .60, or .90 to the price depending on the size
+    @Override
+    public double getPrice() {
+        switch (getSize()) {
+            case "4" -> price = 5.50;
+            case "8" -> price = 7.00;
+            case "12" -> price = 8.50;
+            default -> System.out.println("invalid size.");
+        }
 
+        if(isExtraMeat()) {
             switch (size) {
-                case "4":
-                    price += 0.30;
-                    break;
-                case "8":
-                    price += 0.60;
-                    break;
-                case "12":
-                    price += 0.90;
-                    break;
-                default: price += 0.0;
+                case "4" -> price += 0.50;
+                case "8" -> price += 1.00;
+                case "12" -> price += 1.50;
+                default -> System.out.println("invalid size.");
             }
+        }
 
-        return extraCheese;
+        if(isExtraCheese()){
+            switch (size) {
+                case "4" -> price += 0.30;
+                case "8" -> price += 0.60;
+                case "12" -> price += 0.90;
+                default -> System.out.println("invalid size.");
+            }
+        }
+
+        price += toppings.stream().mapToDouble(Topping::getPrice).sum();
+
+        return price;
+    }
+
+    public boolean isExtraCheese() {
+        return true;
     }
 
     public void setExtraCheese(boolean extraCheese) {
@@ -66,20 +85,7 @@ public class Sandwich implements Price {
 
     public boolean isExtraMeat() {
 
-
-            switch (size) {
-                case "4":
-                    price += 0.50;
-                    break;
-                case "8":
-                    price += 1.00;
-                    break;
-                case "12":
-                    price += 1.50;
-                    break;
-                default: price += 0;
-            }
-        return extraMeat;
+        return true;
     }
 
     public void setExtraMeat(boolean extraMeat) {
@@ -94,32 +100,12 @@ public class Sandwich implements Price {
         this.size = size;
     }
 
-
-
-
-    @Override
-    public double getPrice() {
-            switch (getSize()) {
-                case "4":
-                    price = 5.50;
-                    break;
-                case "8":
-                    price = 7.00;
-                    break;
-                case "12":
-                    price = 8.50;
-                    break;
-                default:
-                    System.out.println("invalid size.");
-            }
-
-            price += toppings.stream().mapToDouble(Topping::getPrice).sum();
-
-        return price;
-    }
-
     public void addTopping(Topping topping) {
         toppings.add(topping);
+    }
+
+    public ArrayList<PremiumTopping> getPremiumToppings() {
+        return new ArrayList<>(Arrays.asList((PremiumTopping)toppings.get(0), (PremiumTopping) toppings.get(1)));
     }
 }
 

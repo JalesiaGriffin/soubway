@@ -3,9 +3,9 @@ package com.pluralsight.deli;
 import java.util.*;
 
 public class Order {
-    private List<Sandwich> sandwiches;
-    private List<Drink> drinks;
-    private List<Chip> chips;
+    private final List<Sandwich> sandwiches;
+    private final List<Drink> drinks;
+    private final List<Chip> chips;
 
     public Order() {
         this.sandwiches = new ArrayList<>();
@@ -27,7 +27,7 @@ public class Order {
     public void removeDrink(Drink drink){drinks.remove(drink);}
 
     public void checkOut(){
-        System.out.println("Checkout");
+        System.out.println("\nCheckout");
         System.out.println(receipt());
     }
 
@@ -35,11 +35,18 @@ public class Order {
         StringBuilder sb = new StringBuilder();
 
         if(!sandwiches.isEmpty()){
-            sb.append("\nSandwiches");
+            sb.append("Sandwiches");
             sandwiches.forEach(s -> {
                 sb.append("\n").append(s.getBread().toLowerCase()).append(" bread ").append("sandwich");
                 sb.append("\ntoppings");
                 s.getToppings().forEach(t -> sb.append("\n").append(" - ").append(t.getName()));
+
+                if(s.isExtraMeat()){
+                    sb.append("\n - extra meat");
+                }
+                if(s.isExtraCheese()){
+                    sb.append("\n - extra cheese");
+                }
             });
         }
 
@@ -57,16 +64,24 @@ public class Order {
             });
         }
 
-        sb.append("\n").append("Total: $").append(getTotalPrice());
+        sb.append("\n\n").append("Total: $").append(getTotalPrice());
 
         return sb.toString();
     }
 
     public double getTotalPrice(){
         double sandwichesTotal = sandwiches.stream().mapToDouble(Sandwich::getPrice).sum();
+
+        double toppingsTotal = 0.00;
+        for (Sandwich s : sandwiches){
+            for (PremiumTopping pt: s.getPremiumToppings()){
+                toppingsTotal += pt.getPrice(s.getSize());
+            }
+        }
+
         double drinksTotal = drinks.stream().mapToDouble(Drink::getPrice).sum();
         double chipsTotal = chips.stream().mapToDouble(Chip::getPrice).sum();
 
-        return sandwichesTotal + drinksTotal + chipsTotal;
+        return sandwichesTotal + toppingsTotal + drinksTotal + chipsTotal;
     }
 }

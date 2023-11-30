@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptFileManager {
     public void saveReceiptFile (Order order) {
+        //formatting date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter fm = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         String formattedDateTime = currentDateTime.format(fm);
@@ -17,23 +18,17 @@ public class ReceiptFileManager {
             //get receipt details from the order object
            String receiptDetails = order.receipt();
 
-
             //write date, time & receipt details to file
             writer.write("Date and Time: " + formattedDateTime + "\n" );
             writer.newLine();
             writer.write(receiptDetails);
-
             writer.close();
 
-
+            //confirmation
             System.out.println("Receipt file saved successfully. ");
         }catch (IOException e) {
             System.out.println("Error saving receipt file " + e.getMessage());
         }
     }
-
-
-
-
 }
 
