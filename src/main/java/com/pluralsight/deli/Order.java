@@ -27,29 +27,35 @@ public class Order {
     public void removeDrink(Drink drink){drinks.remove(drink);}
 
     public void checkOut(){
-        receipt();
+        System.out.println("Checkout");
+        System.out.println(receipt());
     }
 
     public String receipt() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\nSandwiches");
-        sandwiches.forEach(s -> {
-            sb.append("\n").append(s.getBread()).append(" Sandwich");
+        if(!sandwiches.isEmpty()){
+            sb.append("\nSandwiches");
+            sandwiches.forEach(s -> {
+                sb.append("\n").append(s.getBread().toLowerCase()).append(" bread ").append("sandwich");
+                sb.append("\ntoppings");
+                s.getToppings().forEach(t -> sb.append("\n").append(" - ").append(t.getName()));
+            });
+        }
 
-            sb.append("\nToppings");
-            s.getToppings().forEach(t -> sb.append("- ").append(t));
-        });
+        if (!drinks.isEmpty()){
+            sb.append("\n\nDrinks");
+            drinks.forEach(d ->{
+                sb.append("\n").append(" - ").append(d.getSize()).append(" ").append(d.getFlavor());
+            });
+        }
 
-        sb.append("\nDrinks");
-        drinks.forEach(d ->{
-            sb.append("-").append(d.getSize()).append(" ").append(d.getFlavor());
-        });
-
-        sb.append("\nChips");
-        drinks.forEach(c ->{
-            sb.append("-").append(c.getSize()).append(c.getFlavor());
-        });
+        if (!chips.isEmpty()){
+            sb.append("\n\nChips");
+            chips.forEach(c ->{
+                sb.append("\n").append(" - ").append(c.getName());
+            });
+        }
 
         sb.append("\n").append("Total: $").append(getTotalPrice());
 
