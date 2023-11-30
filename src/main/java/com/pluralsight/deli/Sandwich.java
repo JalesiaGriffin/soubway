@@ -3,14 +3,17 @@ package com.pluralsight.deli;
 import java.util.ArrayList;
 
 public class Sandwich implements Price {
-
-
+    private String bread;
+    private ArrayList<Topping> toppings = new ArrayList<Topping>();
+    private boolean toasted;
+    private boolean extraCheese;
+    private boolean extraMeat;
+    private String size;
     private double price;
 
     public Sandwich(String bread, String size) {
-
         this.bread = bread;
-
+        this.toppings = new ArrayList<Topping>();
         this.size = size;
     }
 
@@ -91,19 +94,11 @@ public class Sandwich implements Price {
         this.size = size;
     }
 
-    private String bread;
-    private ArrayList<Topping> toppings = new ArrayList<Topping>();
-    private boolean toasted;
-    private boolean extraCheese;
-    private boolean extraMeat;
-    private String size;
+
 
 
     @Override
     public double getPrice() {
-
-        if (getBread().equalsIgnoreCase("white,wheat, rye, wrap")) {
-
             switch (getSize()) {
                 case "4":
                     price = 5.50;
@@ -117,16 +112,14 @@ public class Sandwich implements Price {
                 default:
                     System.out.println("invalid size.");
             }
-        } else {
-            System.out.println("Please input the correct size: (4 , 8, or 12");
 
-        }
+            price += toppings.stream().mapToDouble(Topping::getPrice).sum();
+
         return price;
     }
 
-    @Override
-    public void setPrice(double price) {
-
+    public void addTopping(Topping topping) {
+        toppings.add(topping);
     }
 }
 

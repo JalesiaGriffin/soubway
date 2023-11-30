@@ -20,7 +20,7 @@ private double price;
         this.price = price;
     }
 
-    public double getPrice(){return 0.0;};
+    public double getPrice(){return price;}
 
     public double getPrice(String size){return price;}
 

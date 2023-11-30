@@ -25,9 +25,9 @@ public class UserInterface {
         boolean breadFound = false;
         String bread;
         do {
-
-            System.out.println("Enter your bread:  \uD83E\uDD6A");
-            bread = input.next();
+            System.out.println("\nBREAD OPTIONS - Rye, White, Wheat, or Wrap");
+            System.out.print("Enter your bread  \uD83E\uDD6A : ");
+            bread = input.nextLine();
 
             for (String b : breads) {
                 if (bread.equalsIgnoreCase(b)) {
@@ -46,11 +46,12 @@ public class UserInterface {
 
         boolean sizeFound = false;
         String size;
+        System.out.println("\nSIZE OPTIONS - 4, 8, or 12 (inches)");
         do {
-            System.out.println("Enter your size:  \uD83E\uDD6A");
-            size = input.next();
-            for (String b : sizes) {
-                if (size.equalsIgnoreCase(b)) {
+            System.out.print("Enter your size  \uD83E\uDD6A : ");
+            size = input.nextLine();
+            for (String s : sizes) {
+                if (size.equalsIgnoreCase(s)) {
                     sizeFound = true;
                     break;
                 }
@@ -60,126 +61,133 @@ public class UserInterface {
             }
         } while (!sizeFound);
 
-
+        Sandwich nameOfSandwichObject = new Sandwich(bread, size);
         //------------Toppings Meat
 
         List<String> meats = new ArrayList<>(Arrays.asList("steak", "ham", "salami", "roast beef", "chicken", "bacon"));
 
         ArrayList<Topping> toppings = new ArrayList<>();
-        String choice = "yes";
+        boolean meatFound = false;
 
+        System.out.println("\nMEAT OPTIONS - Steak, Ham, Salami, Roast Beef, Chicken, or Bacon");
         do {
-            System.out.println("Add your meat: ");
-            String topping = input.next();
+            System.out.print("Add your meat: ");
+            String meat = input.nextLine();
             ;
-            for (String b : meats) {
-                if (topping.equalsIgnoreCase(b)) {
-                    toppings.add(new PremiumTopping(topping));
+            for (String m : meats) {
+                if (meat.equalsIgnoreCase(m) || meat.contains(m)) {
+                    meatFound = true;
+                    nameOfSandwichObject.addTopping(new PremiumTopping(meat));
                     break;
                 }
-
             }
-        } while (choice.equalsIgnoreCase("yes"));
+        } while (!meatFound);
 
         // -- Cheese
-        List<String> cheese = new ArrayList<>(Arrays.asList("american", "provolone", "cheddar", "swiss"));
-        System.out.println("Add your cheese: \uD83E\uDD6A");
+        List<String> cheeses = new ArrayList<>(Arrays.asList("american", "provolone", "cheddar", "swiss"));
+        System.out.println("\nCHEESE OPTIONS - American, Provolone, Cheddar, and Swiss");
 
+        boolean cheeseFound = false;
         do {
-            System.out.println("Add your cheese: ");
-            String topping = input.next();
+            System.out.print("Add your cheese \uD83E\uDD6A : ");
+            String cheese = input.nextLine();
             ;
-            for (String b : cheese) {
-                if (topping.equalsIgnoreCase(b)) {
-                    toppings.add(new PremiumTopping(topping));
+            for (String c : cheeses) {
+                if (cheese.equalsIgnoreCase(c)) {
+                    cheeseFound = true;
+                    nameOfSandwichObject.addTopping(new PremiumTopping(cheese));
                     break;
                 }
-
             }
-        } while (choice.equalsIgnoreCase("yes"));
+        } while (!cheeseFound);
+
+        // -- Regular Toppings
+        List<String> regularToppings = new ArrayList<>(Arrays.asList("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalepenos", "Cucumbers"));
+        System.out.println("\nTOPPING OPTIONS - Lettuce, Peppers, Onions, Tomatoes, Jalepenos, Cucumbers");
+        boolean toppingFound = false;
+        boolean selectingToppings = true;
+
+        while(selectingToppings) {
+            do {
+                System.out.print("Add topping: ");
+                String topping = input.nextLine();
+
+                for (String t : regularToppings){
+                    if(topping.equalsIgnoreCase(t)){
+                        toppingFound = true;
+                        nameOfSandwichObject.addTopping(new RegularTopping(topping));
+                        break;
+                    }
+                } if (!toppingFound){
+                    System.out.println("Sorry, we don't carry that topping");
+                }
+            } while(!toppingFound);
+
+            System.out.print("Would you like to add another topping? ");
+            String userToppingChoice = input.nextLine();
+
+            if (userToppingChoice.equalsIgnoreCase("no"))  {
+                selectingToppings = false;
+            }
+        }
+
 
 
         //-----Extra cheese
-
-
-        System.out.println("Would you like extra Cheese? Press Y for Yes and N for No ");
-
-
-        Sandwich nameOfSandwichObject = new Sandwich(bread, size);
-        String userInput = input.next();
-
-        boolean extraCheese;
+        System.out.print("\nWould you like extra Cheese(Y for Yes and N for No)? ");
+        String userInput = input.nextLine();
 
         if (userInput.equalsIgnoreCase("Y")) {
             nameOfSandwichObject.isExtraCheese();
             System.out.println("You added extra Cheese");
-
-        } else if (userInput.equalsIgnoreCase("N")) {
-            extraCheese = false;
         }
 
 
         //---------------Extra Meat
-
-        System.out.println("Would you like extra Meat? Press Y for Yes and N for No ");
-        userInput = input.next();
-
-        boolean extraMeat;
+        System.out.print("\nWould you like extra Meat (Press Y for Yes and N for No)? ");
+        userInput = input.nextLine();
 
         if (userInput.equalsIgnoreCase("Y")) {
             nameOfSandwichObject.isExtraMeat();
             System.out.println("You added extra Meat");
-
-        } else if (userInput.equalsIgnoreCase("N")) {
-            extraMeat = false;
         }
 
 
-        //------------Tosted
-
-
-        System.out.println("Would you like for it to be toasted? Press Y for Yes and N for No ");
-        userInput = input.next();
-        boolean toasted;
-
+        //------------Toasted
+        System.out.print("\nWould you like for it to be toasted (Press Y for Yes and N for No)? ");
+        userInput = input.nextLine();
 
         if (userInput.equalsIgnoreCase("Y")) {
             nameOfSandwichObject.isToasted();
             System.out.println("It will be toasted");
-        } else if (userInput.equalsIgnoreCase("N")) {
-            toasted = false;
         }
-        order.addSandwich(nameOfSandwichObject);
 
+        order.addSandwich(nameOfSandwichObject);
     }
 
     //-------Adding Chips
-    public void processAddChips() {
-        List<String> chips = new ArrayList<>(Arrays.asList("Sunchip", "Doritos", "Lays", "Cheetos", "Pringles"));
-
-        boolean nameFound = false;
-
-        String name;
-
+    public void  processAddChips() {
+        List<String> chips = new ArrayList<>(Arrays.asList("Sunchip", "Doritos", "Lays","Cheetos","Pringles"));
+        boolean chipFound = false;
+        String chip;
+        System.out.println("\nCHIP OPTIONS - Sunchip, Doritos, Lays, Cheetos, or Pringles");
         do {
-            System.out.println("Add your chips: ");
-            name = input.next();
-
-            for (String b : chips) {
-                if (name.equalsIgnoreCase(b)) {
-                    nameFound = true;
+            System.out.print("Add your chips: ");
+            chip = input.nextLine();
+            for (String c : chips) {
+                if (chip.equalsIgnoreCase(c)) {
+                    chipFound = true;
                     break;
                 }
             }
-
-            if (!nameFound) {
+            if (!chipFound) {
                 System.out.println("Sorry, we do not carry that chip.");
 
             }
+        } while (!chipFound);
 
-        } while (!nameFound);
 
-        order.addChips(new Chip(name));
+        order.addChips(new Chip(chip));
     }
 
 
@@ -190,8 +198,8 @@ public class UserInterface {
         boolean sizeFound = false;
         String size;
         do {
-            System.out.println("Select drink size: \uD83E\uDD64");
-            size = input.next();
+            System.out.print("\nSelect drink size (small, medium, or large) \uD83E\uDD64 : ");
+            size = input.nextLine();
             for (String b : sizes) {
                 if (size.equalsIgnoreCase(b)) {
                     sizeFound = true;
@@ -202,14 +210,18 @@ public class UserInterface {
                 System.out.println("Sorry, we do not carry that size.");
             }
         } while (!sizeFound);
+
+
+
         List<String> flavors = new ArrayList<>(Arrays.asList("Fanta", "Coke", "Pepsi","Ginger ale", "Sprite","Root Beer"));
         boolean flavorFound = false;
         String flavor;
+        System.out.println("\nDRINK FLAVORS - Fanta, Coke, Pepsi, Ginger Ale, Sprite, or Root Beer");
         do {
-            System.out.println("Select drink flavor: \uD83E\uDD64");
-            flavor = input.next();
-            for (String b : flavors) {
-                if (flavor.equalsIgnoreCase(b)) {
+            System.out.print("Select drink flavor \uD83E\uDD64 : ");
+            flavor = input.nextLine();
+            for (String f : flavors) {
+                if (flavor.equalsIgnoreCase(f)) {
                     flavorFound = true;
                     break;
                 }
@@ -239,7 +251,7 @@ public class UserInterface {
             System.out.println("1.) Start new Order");
             System.out.println("0.) Exit");
 
-            System.out.println("You selected \uD83E\uDD6A");
+            System.out.print("You selected \uD83E\uDD6A : ");
             String firstInput = scanner.nextLine().trim();
             switch (firstInput) {
                 case "1":
@@ -254,19 +266,18 @@ public class UserInterface {
     }
         //----- Second part of the menu if they want to start a new order
     public void trueMenu() {
-        Scanner scanner = new Scanner(System.in);
-        boolean acts = true;
-        while (acts) {
-            System.out.println("Alright! Let's start your order!");
+        boolean running = true;
+        while(running) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\nAlright! Let's complete your order!");
             System.out.println("1.) Add soub");
             System.out.println("2.) Add chips");
             System.out.println("3.) Add drink");
             System.out.println("4.) Checkout");
             System.out.println("0.) Cancel Order");
-            System.out.println("You selected \uD83E\uDD6A");
+            System.out.print("You selected \uD83E\uDD6A : ");
 
             String input = scanner.nextLine().trim();
-
 
             switch (input) {
                 case "1":
@@ -282,11 +293,11 @@ public class UserInterface {
                     processCheckout();
                     break;
                 case "0":
-                    acts = false;
+                    running = false;
                     break;
             }
         }
-        }
     }
+}
 
 
