@@ -22,6 +22,9 @@ employees and customers.
 ----------------------------
 ### Technologies Used
 
+- IntelliJ
+- Java
+
 ----------------------------
 ### Demo
 
@@ -39,7 +42,6 @@ employees and customers.
 - Expand our food options for customer enjoyment
 - Add delivery options on our menu
 - Add additional pickup options for UberEats/ Instacart employees
-- Option to remove unwanted items
 
 -------------------------------
 ### Resources
@@ -55,4 +57,9 @@ employees and customers.
 --------------------------------
 ### Kudos
 
+Special thanks to Raymond for pointing us in the right direction
+and challenging us. Kudos to my fellow group mates Jada & Jalesia. We communicated effectively
+& helped each other whenever & wherever we could at a time where its so easy to just
+put your head down & worry about yourself & im grateful to be a apart of
+the BEST TEAM!!!!
 
