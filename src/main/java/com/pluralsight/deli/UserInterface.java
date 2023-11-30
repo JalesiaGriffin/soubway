@@ -8,11 +8,12 @@ public class UserInterface {
     private Order order;
 
     Scanner input = new Scanner(System.in);
-    public void display(){
+
+    public void display() {
         displayMenu();
     }
 
-    public void startNewOrder(){
+    public void startNewOrder() {
         order = new Order();
 
     }
@@ -65,7 +66,7 @@ public class UserInterface {
         List<String> meats = new ArrayList<>(Arrays.asList("steak", "ham", "salami", "roast beef", "chicken", "bacon"));
 
         ArrayList<Topping> toppings = new ArrayList<>();
-        String choice = null;
+        String choice = "yes";
 
         do {
             System.out.println("Add your meat: ");
@@ -76,7 +77,7 @@ public class UserInterface {
                     toppings.add(new PremiumTopping(topping));
                     break;
                 }
-                ;
+
             }
         } while (choice.equalsIgnoreCase("yes"));
 
@@ -93,7 +94,7 @@ public class UserInterface {
                     toppings.add(new PremiumTopping(topping));
                     break;
                 }
-                ;
+
             }
         } while (choice.equalsIgnoreCase("yes"));
 
@@ -153,26 +154,35 @@ public class UserInterface {
     }
 
     //-------Adding Chips
-    public void  processAddChips() {
-        List<String> chips = new ArrayList<>(Arrays.asList("Sunchip", "Doritos", "Lays","Cheetos","Pringles"));
+    public void processAddChips() {
+        List<String> chips = new ArrayList<>(Arrays.asList("Sunchip", "Doritos", "Lays", "Cheetos", "Pringles"));
+
         boolean nameFound = false;
+
         String name;
+
         do {
             System.out.println("Add your chips: ");
             name = input.next();
+
             for (String b : chips) {
                 if (name.equalsIgnoreCase(b)) {
                     nameFound = true;
                     break;
                 }
             }
+
             if (!nameFound) {
                 System.out.println("Sorry, we do not carry that chip.");
+
             }
+
         } while (!nameFound);
 
         order.addChips(new Chip(name));
     }
+
+
     //------- Adding drinks
 
     public void processAddDrinks(){
@@ -235,6 +245,7 @@ public class UserInterface {
                 case "1":
                     startNewOrder();
                     trueMenu();
+                    break;
                 case "0":
                     acting = false;
                     break;
@@ -243,7 +254,9 @@ public class UserInterface {
     }
         //----- Second part of the menu if they want to start a new order
     public void trueMenu() {
-            Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        boolean acts = true;
+        while (acts) {
             System.out.println("Alright! Let's start your order!");
             System.out.println("1.) Add soub");
             System.out.println("2.) Add chips");
@@ -253,8 +266,7 @@ public class UserInterface {
             System.out.println("You selected \uD83E\uDD6A");
 
             String input = scanner.nextLine().trim();
-            boolean acts = true;
-            while (acts) {
+
 
             switch (input) {
                 case "1":
