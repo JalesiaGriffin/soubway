@@ -10,15 +10,26 @@ employees and customers.
 
 ----------------------------
 #### CLASS DIAGRAM
-![HERE](Soubway-UML.jpeg)
+![Soubway-UML.jpeg](IMG%2FSoubway-UML.jpeg)
 
 ----------------------------
 ### User Stories
 
+User stories are testimonials from a targeted end user's perspective.
+A user story typically follows this format:
+
+"As a[type of user], I want [an action] so that [benefit/value]."
+
+The examples we'll be listing today are:
+
+![UserStory1.PNG](IMG%2FUserStory1.PNG)
+
+![UserStory2.PNG](IMG%2FUserStory2.PNG)
+
 ----------------------------
 ### Setup
 
-- 
+
 ----------------------------
 ### Technologies Used
 
@@ -29,10 +40,13 @@ employees and customers.
 ### Demo
 
 - Main Menu
-![HERE](NewOrder.PNG)
+
+![NewOrder.PNG](IMG%2FNewOrder.PNG)
+
 
 - Start of Order
-![HERE](Options.PNG)
+
+![Options.PNG](IMG%2FOptions.PNG)
 
 
 
