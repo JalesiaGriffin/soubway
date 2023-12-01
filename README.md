@@ -10,7 +10,7 @@ employees and customers.
 
 ----------------------------
 #### CLASS DIAGRAM
-![uml diagram](IMG/soubway-uml.jpeg)
+![uml diagram](IMG/Soubway-UML.jpeg)
 
 ----------------------------
 ### User Stories
