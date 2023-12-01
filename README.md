@@ -10,7 +10,7 @@ employees and customers.
 
 ----------------------------
 #### CLASS DIAGRAM
-![Soubway-UML.jpeg](IMG%2FSoubway-UML.jpeg)
+![uml diagram](IMG/soubway-uml.jpeg)
 
 ----------------------------
 ### User Stories
@@ -66,14 +66,37 @@ team members to see. In order to do that follow the steps below:
 ----------------------------
 ### Demo
 
+![demo](IMG/demo.gif)
+
+## Screens
 - Main Menu
 
-![NewOrder.PNG](IMG%2FNewOrder.PNG)
+![main menu](IMG/main-menu.PNG)
 
 
-- Start of Order
+- Order Menu
 
-![Options.PNG](IMG%2FOptions.PNG)
+![order menu](IMG/order-menu.PNG)
+
+
+- Sandwich Creation
+
+![sandwich creation](IMG/sandwich-creation.PNG)
+
+
+- Chip Selection
+
+![chip selection](IMG/chips-selection.PNG)
+
+
+- Drink Selection
+
+![drink selection](IMG/drink-selection.PNG)
+
+
+- Check Out
+
+![check out screen](IMG/checkout-screen.PNG)
 
 
 

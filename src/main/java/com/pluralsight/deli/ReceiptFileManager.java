@@ -16,7 +16,7 @@ public class ReceiptFileManager {
         String fileName = formattedDateTime + ".txt";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             //get receipt details from the order object
-           String receiptDetails = order.receipt();
+           String receiptDetails = order.orderDetails();
 
             //write date, time & receipt details to file
             writer.write("Date and Time: " + formattedDateTime + "\n" );

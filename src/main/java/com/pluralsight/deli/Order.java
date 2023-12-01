@@ -28,16 +28,17 @@ public class Order {
 
     public void checkOut(){
         System.out.println("\nCheckout");
-        System.out.println(receipt());
+        System.out.println(orderDetails());
     }
 
-    public String receipt() {
+    public String orderDetails() {
         StringBuilder sb = new StringBuilder();
 
         if(!sandwiches.isEmpty()){
             sb.append("Sandwiches");
             sandwiches.forEach(s -> {
-                sb.append("\n").append(s.getBread().toLowerCase()).append(" bread ").append("sandwich");
+                String toasted = s.isToasted() ? " (toasted)": "";
+                sb.append("\n").append(s.getBread().toLowerCase()).append(" Bread ").append("Sandwich").append(toasted);
                 sb.append("\ntoppings");
                 s.getToppings().forEach(t -> sb.append("\n").append(" - ").append(t.getName()));
 

@@ -17,6 +17,9 @@ public class Sandwich implements Price {
         this.bread = bread;
         this.toppings = new ArrayList<Topping>();
         this.size = size;
+        extraMeat = false;
+        extraCheese = false;
+        toasted = false;
     }
 
     public String getBread() {
@@ -35,9 +38,7 @@ public class Sandwich implements Price {
         this.toppings = toppings;
     }
 
-    public boolean isToasted() {
-        return toasted;
-    }
+    public boolean isToasted() {return toasted;}
 
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
@@ -69,24 +70,18 @@ public class Sandwich implements Price {
                 default -> System.out.println("invalid size.");
             }
         }
-
-        price += toppings.stream().mapToDouble(Topping::getPrice).sum();
-
         return price;
     }
 
     public boolean isExtraCheese() {
-        return true;
+        return extraCheese;
     }
 
     public void setExtraCheese(boolean extraCheese) {
         this.extraCheese = extraCheese;
     }
 
-    public boolean isExtraMeat() {
-
-        return true;
-    }
+    public boolean isExtraMeat() {return extraMeat;}
 
     public void setExtraMeat(boolean extraMeat) {
         this.extraMeat = extraMeat;
@@ -104,6 +99,15 @@ public class Sandwich implements Price {
         toppings.add(topping);
     }
 
+    public void addExtraCheese(){
+        extraCheese = true;
+    }
+
+    public void addExtraMeat(){
+        extraMeat = true;
+    }
+
+    public void toast(){toasted = true;}
     public ArrayList<PremiumTopping> getPremiumToppings() {
         return new ArrayList<>(Arrays.asList((PremiumTopping)toppings.get(0), (PremiumTopping) toppings.get(1)));
     }
